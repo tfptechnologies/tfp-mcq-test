@@ -1,488 +1,631 @@
 const questions = [
-  // ======================
-  // 🟡 MEDIUM (q1–q30)
-  // ======================
+  // =====================================================
+  // SIMPLE LEVEL — VARIABLES & OPERATORS (Q1–Q10)
+  // =====================================================
 
   {
     id: "q1",
     question: "What is the output?",
-    options: ["0 1 2", "1 2 3", "0 1", "Error"],
+    options: ["15", "10", "5", "Error"],
+    correct: "15",
+    code: `a = 10
+b = 5
+print(a + b)`,
+  },
+
+  {
+    id: "q2",
+    question: "What is the output?",
+    options: ["20", "10", "5", "Error"],
+    correct: "20",
+    code: `x = 5
+x = x * 4
+print(x)`,
+  },
+
+  {
+    id: "q3",
+    question: "Which operator is used for exponentiation in Python?",
+    options: ["^", "**", "//", "%%"],
+    correct: "**",
+    code: `print(2 ** 3)`,
+  },
+
+  {
+    id: "q4",
+    question: "What is the output?",
+    options: ["2", "3", "2.5", "Error"],
+    correct: "2",
+    code: `a = 10
+b = 4
+print(a // b)`,
+  },
+
+  {
+    id: "q5",
+    question: "What is the output?",
+    options: ["1", "2", "2.5", "0"],
+    correct: "2",
+    code: `print(10 % 4)`,
+  },
+
+  {
+    id: "q6",
+    question: "Find the error in the following code.",
+    options: ["SyntaxError", "NameError", "TypeError", "No Error"],
+    correct: "SyntaxError",
+    code: `2name = "Python"
+print(2name)`,
+  },
+
+  {
+    id: "q7",
+    question: "What is the output?",
+    options: ["True", "False", "1", "Error"],
+    correct: "True",
+    code: `a = 10
+b = 10
+print(a == b)`,
+  },
+
+  {
+    id: "q8",
+    question: "What is the output?",
+    options: ["10", "11", "9", "Error"],
+    correct: "11",
+    code: `x = 10
+x += 1
+print(x)`,
+  },
+
+  {
+    id: "q9",
+    question: "What is the output?",
+    options: ["8", "16", "10", "Error"],
+    correct: "8",
+    code: `a = 2
+b = 3
+print(a + b * 2)`,
+  },
+
+  {
+    id: "q10",
+    question: "Find the error in the following code.",
+    options: ["SyntaxError", "TypeError", "NameError", "No Error"],
+    correct: "TypeError",
+    code: `a = 10
+b = "5"
+print(a + b)`,
+  },
+
+  // =====================================================
+  // MEDIUM LEVEL — CONDITIONS (Q11–Q30)
+  // =====================================================
+
+  {
+    id: "q11",
+    question: "What is the output?",
+    options: ["Positive", "Negative", "Zero", "Error"],
+    correct: "Positive",
+    code: `num = 10
+
+if num > 0:
+    print("Positive")
+else:
+    print("Negative")`,
+  },
+
+  {
+    id: "q12",
+    question: "What is the output?",
+    options: ["A", "B", "C", "Error"],
+    correct: "B",
+    code: `x = 15
+
+if x > 20:
+    print("A")
+elif x > 10:
+    print("B")
+else:
+    print("C")`,
+  },
+
+  {
+    id: "q13",
+    question: "What is the output?",
+    options: ["Even", "Odd", "Zero", "Error"],
+    correct: "Even",
+    code: `num = 8
+
+if num % 2 == 0:
+    print("Even")
+else:
+    print("Odd")`,
+  },
+
+  {
+    id: "q14",
+    question: "Find the error in the following code.",
+    options: ["SyntaxError", "IndentationError", "NameError", "No Error"],
+    correct: "IndentationError",
+    code: `age = 20
+
+if age >= 18:
+print("Adult")
+else:
+    print("Minor")`,
+  },
+
+  {
+    id: "q15",
+    question: "What is the output?",
+    options: ["10", "20", "30", "Error"],
+    correct: "30",
+    code: `a = 10
+b = 20
+
+if a < b:
+    print(a + b)
+else:
+    print(a - b)`,
+  },
+
+  {
+    id: "q16",
+    question: "What is the output?",
+    options: ["Yes", "No", "Error", "Nothing"],
+    correct: "Yes",
+    code: `x = 10
+
+if x > 5 and x < 15:
+    print("Yes")
+else:
+    print("No")`,
+  },
+
+  {
+    id: "q17",
+    question: "What is the output?",
+    options: ["True", "False", "Error", "None"],
+    correct: "True",
+    code: `x = 5
+
+if x == 5 or x == 10:
+    print(True)
+else:
+    print(False)`,
+  },
+
+  {
+    id: "q18",
+    question: "What is the output?",
+    options: ["Pass", "Fail", "Excellent", "Error"],
+    correct: "Pass",
+    code: `marks = 75
+
+if marks >= 90:
+    print("Excellent")
+elif marks >= 50:
+    print("Pass")
+else:
+    print("Fail")`,
+  },
+
+  {
+    id: "q19",
+    question: "What is the output?",
+    options: ["10", "20", "30", "Error"],
+    correct: "20",
+    code: `x = 10
+y = 20
+
+result = x if x > y else y
+print(result)`,
+  },
+
+  {
+    id: "q20",
+    question: "What is the output?",
+    options: ["Positive", "Negative", "Zero", "Error"],
+    correct: "Negative",
+    code: `num = -5
+
+result = "Positive" if num > 0 else "Negative"
+print(result)`,
+  },
+
+  {
+    id: "q21",
+    question: "What is the output?",
+    options: ["A", "B", "C", "D"],
+    correct: "C",
+    code: `x = 25
+
+if x < 10:
+    print("A")
+elif x < 20:
+    print("B")
+elif x < 30:
+    print("C")
+else:
+    print("D")`,
+  },
+
+  {
+    id: "q22",
+    question: "Find the error in the following code.",
+    options: ["SyntaxError", "IndentationError", "NameError", "No Error"],
+    correct: "SyntaxError",
+    code: `age = 20
+
+if age >= 18
+    print("Adult")
+else:
+    print("Minor")`,
+  },
+
+  {
+    id: "q23",
+    question: "What is the output?",
+    options: ["Monday", "Tuesday", "Invalid", "Error"],
+    correct: "Tuesday",
+    code: `day = 2
+
+match day:
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case _:
+        print("Invalid")`,
+  },
+
+  {
+    id: "q24",
+    question: "What is the output?",
+    options: ["One", "Two", "Other", "Error"],
+    correct: "Other",
+    code: `num = 5
+
+match num:
+    case 1:
+        print("One")
+    case 2:
+        print("Two")
+    case _:
+        print("Other")`,
+  },
+
+  {
+    id: "q25",
+    question: "What is the output?",
+    options: ["Even", "Odd", "Error", "None"],
+    correct: "Odd",
+    code: `num = 7
+
+result = "Even" if num % 2 == 0 else "Odd"
+print(result)`,
+  },
+
+  {
+    id: "q26",
+    question: "What is the output?",
+    options: ["Greater", "Smaller", "Equal", "Error"],
+    correct: "Equal",
+    code: `a = 10
+b = 10
+
+if a > b:
+    print("Greater")
+elif a < b:
+    print("Smaller")
+else:
+    print("Equal")`,
+  },
+
+  {
+    id: "q27",
+    question: "Find the error in the following code.",
+    options: ["SyntaxError", "NameError", "TypeError", "No Error"],
+    correct: "NameError",
+    code: `num = 10
+
+if number > 5:
+    print("Greater")`,
+  },
+
+  {
+    id: "q28",
+    question: "What is the output?",
+    options: ["Low", "Medium", "High", "Error"],
+    correct: "High",
+    code: `marks = 95
+
+if marks >= 80:
+    print("High")
+elif marks >= 50:
+    print("Medium")
+else:
+    print("Low")`,
+  },
+
+  {
+    id: "q29",
+    question: "What is the output?",
+    options: ["10", "15", "20", "Error"],
+    correct: "15",
+    code: `x = 10
+y = 5
+
+result = x + y if x > y else x - y
+print(result)`,
+  },
+
+  {
+    id: "q30",
+    question: "Find the error in the following code.",
+    options: ["SyntaxError", "IndentationError", "NameError", "No Error"],
+    correct: "SyntaxError",
+    code: `x = 10
+
+if x > 5:
+    print("Yes")
+elif:
+    print("No")`,
+  },
+
+  // =====================================================
+  // HARD LEVEL — WHILE / FOR / BREAK / CONTINUE
+  // RANGE / WHILE-ELSE / FOR-ELSE (Q31–Q50)
+  // =====================================================
+
+  {
+    id: "q31",
+    question: "What is the output?",
+    options: ["0 1 2", "0 1", "1 2 3", "Error"],
     correct: "0 1",
-    code: `for i in range(3):
+    code: `i = 0
+
+while i < 3:
+    if i == 2:
+        break
+    print(i, end=" ")
+    i += 1`,
+  },
+
+  {
+    id: "q32",
+    question: "What is the output?",
+    options: ["1 2 3", "1 3", "2", "Error"],
+    correct: "1 3",
+    code: `i = 0
+
+while i < 4:
+    i += 1
+    if i == 2:
+        continue
+    print(i, end=" ")`,
+  },
+
+  {
+    id: "q33",
+    question: "What is the output?",
+    options: ["0 1 2", "0 1 2 Done", "Done", "Error"],
+    correct: "0 1 2 Done",
+    code: `i = 0
+
+while i < 3:
+    print(i, end=" ")
+    i += 1
+else:
+    print("Done")`,
+  },
+
+  {
+    id: "q34",
+    question: "What is the output?",
+    options: ["0 1 Done", "0 1", "Done", "Infinite loop"],
+    correct: "0 1",
+    code: `i = 0
+
+while i < 3:
+    if i == 2:
+        break
+    print(i, end=" ")
+    i += 1
+else:
+    print("Done")`,
+  },
+
+  {
+    id: "q35",
+    question: "What is the output?",
+    options: ["1 2 3", "1 2", "2 3", "Error"],
+    correct: "1 2",
+    code: `i = 1
+
+while i <= 3:
+    print(i, end=" ")
+    if i == 2:
+        break
+    i += 1`,
+  },
+
+  {
+    id: "q36",
+    question: "What is the output?",
+    options: ["0 2 4", "0 1 2 3 4", "1 3", "Error"],
+    correct: "0 2 4",
+    code: `i = 0
+
+while i < 5:
+    if i % 2 != 0:
+        i += 1
+        continue
+    print(i, end=" ")
+    i += 1`,
+  },
+
+  {
+    id: "q37",
+    question: "Find the error in the following code.",
+    options: ["SyntaxError", "Infinite loop", "NameError", "No Error"],
+    correct: "Infinite loop",
+    code: `i = 0
+
+while i < 5:
+    print(i)`,
+  },
+
+  {
+    id: "q38",
+    question: "What is the output?",
+    options: ["Found", "Not Found", "Found Not Found", "Error"],
+    correct: "Found",
+    code: `i = 1
+
+while i <= 5:
+    if i == 3:
+        print("Found")
+        break
+    i += 1
+else:
+    print("Not Found")`,
+  },
+
+  {
+    id: "q39",
+    question: "What is the output?",
+    options: ["0 1 2 3", "0 1 3", "0 1 2", "Error"],
+    correct: "0 1 3",
+    code: `for i in range(4):
+    if i == 2:
+        continue
+    print(i, end=" ")`,
+  },
+
+  {
+    id: "q40",
+    question: "What is the output?",
+    options: ["0 1 2", "0 1", "1 2", "Error"],
+    correct: "0 1",
+    code: `for i in range(5):
     if i == 2:
         break
     print(i, end=" ")`,
   },
 
   {
-    id: "q2",
-    question: "What is the output?",
-    options: ["[2,3,4]", "[1,2,3,4]", "[0,1,2,3,4]", "Error"],
-    correct: "[2,3,4]",
-    code: `print(list(filter(lambda x: x > 1, [-3,-2,-1,0,1,2,3,4])))`,
-  },
-
-  {
-    id: "q3",
-    question: "What is the output?",
-    options: ["True", "False", "Error", "None"],
-    correct: "True",
-    code: `print(isinstance(5, int))`,
-  },
-
-  {
-    id: "q4",
-    question: "What is the output?",
-    options: ["[1,2,3]", "[1,2]", "Error", "None"],
-    correct: "[1,2]",
-    code: `a=[1,2,3]
-a.pop()
-print(a)`,
-  },
-  {
-    id: "q5",
-    question: "What is the output?",
-    options: ["[2,4,6]", "1,2,3", "[1,2,3]", "[1,4,9]"],
-    correct: "[2,4,6]",
-    code: `print(list(map(lambda x:x*2,[1,2,3])))`,
-  },
-
-  {
-    id: "q6",
-    question: "What is the output?",
-    options: ["6", "12", "0", "None"],
-    correct: "6",
-    code: `print(sum({1,1,2,2,3,3}))`,
-  },
-
-  {
-    id: "q7",
-    question: "What is the output?",
-    options: ["{'a':1,'b':2}", "['a','b']", "('a','b')", "[1,2]"],
-    correct: "['a','b']",
-    code: `print(list({'a':1,'b':2}))`,
-  },
-
-  {
-    id: "q8",
-    question: "What is the output?",
-    options: ["True", "False", "Error", "None"],
-    correct: "False",
-    code: `print(10 > 5 > 10)`,
-  },
-
-  {
-    id: "q9",
-    question: "What is the output?",
-    options: ["[1,2,3,4]", "[1,2,3]", "Error", "None"],
-    correct: "[1,2,3,4]",
-    code: `a=[1,2]
-a+= [3,4]
-print(a)`,
-  },
-
-  {
-    id: "q10",
-    question: "What is the output?",
-    options: ["3", "2", "Error", "1"],
-    correct: "2",
-    code: `print(len((1,)))`,
-  },
-
-  {
-    id: "q11",
-    question: "What is the output?",
-    options: ["Error", "True", "False", "None"],
-    correct: "True",
-    code: `print(type({}) == dict)`,
-  },
-
-  {
-    id: "q12",
-    question: "What is the output?",
-    options: ["0", "1", "Error", "None"],
-    correct: "1",
-    code: `print(True + False)`,
-  },
-
-  {
-    id: "q13",
-    question: "What is the output?",
-    options: ["2", "3", "IndexError", "1"],
-    correct: "2",
-    code: `x=[1,2,3]
-print(x[-2])`,
-  },
-
-  {
-    id: "q14",
-    question: "What type of error occurs?",
-    options: ["TypeError", "AttributeError", "ValueError", "No Error"],
-    correct: "AttributeError",
-    code: `a=10
-a.append(5)`,
-  },
-
-  {
-    id: "q15",
-    question: "What is the output?",
-    options: ["[1,2]", "[2,3]", "Error", "None"],
-    correct: "[2,3]",
-    code: `print([i for i in [1,2,1,3,1] if i!=1])`,
-  },
-
-  {
-    id: "q16",
-    question: "What type of error occurs?",
-    options: ["TypeError", "AttributeError", "NameError", "No Error"],
-    correct: "TypeError",
-    code: `for i in 5:
-    print(i)`,
-  },
-
-  {
-    id: "q17",
-    question: "What type of error occurs?",
-    options: ["TypeError", "KeyError", "IndexError", "No Error"],
-    correct: "KeyError",
-    code: `d={}
-print(d["x"])`,
-  },
-
-  {
-    id: "q18",
-    question: "What is the output?",
-    options: ["Error", "1", "True", "False"],
-    correct: "True",
-    code: `print(bool(1))`,
-  },
-
-  {
-    id: "q19",
-    question: "What is the output?",
-    options: ["[1,2,3]", "[3,2,1]", "Error", "None"],
-    correct: "[3,2,1]",
-    code: `print(sorted([3,2,1]))`,
-  },
-
-  {
-    id: "q20",
-    question: "What is the output?",
-    options: ["Error", "None", "True", "False"],
-    correct: "None",
-    code: `def f():
-    pass
-print(f())`,
-  },
-
-  {
-    id: "q21",
-    question: "What is the output?",
-    options: ["5", "10", "Error", "None"],
-    correct: "10",
-    code: `x=5
-x*=2
-print(x)`,
-  },
-
-  {
-    id: "q22",
-    question: "What is the output?",
-    options: ["[[1],[2]]", "[[1,2],[1,2]]", "[[1,2],[2]]", "Error"],
-    correct: "[[1,2],[2]]",
-    code: `a=[[1],[2]]
-b=a
-b[0].append(2)
-print(a)`,
-  },
-
-  {
-    id: "q23",
-    question: "What is the output?",
-    options: ["Error", "1", "0", "None"],
-    correct: "1",
-    code: `print(len({1,1,1}))`,
-  },
-
-  {
-    id: "q24",
-    question: "What is the output?",
-    options: ["2", "Error", "1", "3"],
-    correct: "1",
-    code: `print([1,2,3].index(2))`,
-  },
-
-  {
-    id: "q25",
-    question: "What is the output?",
-    options: ["True", "False", "Error", "None"],
-    correct: "False",
-    code: `print(bool(0.0))`,
-  },
-
-  {
-    id: "q26",
-    question: "What is the output?",
-    options: ["Error", "True", "False", "None"],
-    correct: "True",
-    code: `print(isinstance("abc", str))`,
-  },
-
-  {
-    id: "q27",
-    question: "What is the output?",
-    options: ["abc", "a b c", "Error", "None"],
-    correct: "a b c",
-    code: `print(" ".join("abc"))`,
-  },
-
-  {
-    id: "q28",
-    question: "What is the output?",
-    options: ["[1,2,3]", "[1,2]", "Error", "None"],
-    correct: "[1,2]",
-    code: `a=[1,2,3]
-del a[-1]
-print(a)`,
-  },
-
-  {
-    id: "q29",
-    question: "What is the output?",
-    options: ["24", "1", "4", "ValueError"],
-    correct: "24",
-    code: `def f(n):
-    try:
-        if n == 1:
-            raise ValueError
-        return n * f(n-1)
-    except:
-        return 1
-
-print(f(4))`,
-  },
-
-  {
-    id: "q30",
-    question: "What is the output?",
-    options: ["0 1 E 0 1 0", "0 1 2 0 1", "Error", "None"],
-    correct: "0 1 E 0 1 0",
-    code: `def f(n):
-    for i in range(n):
-        try:
-            if i == 2:
-                raise Exception
-            print(i, end=" ")
-        except:
-            print("E", end=" ")
-    if n > 0:
-        f(n-1)
-
-f(3)`,
-  },
-
-  {
-    id: "q31",
-    question: "What is the output?",
-    options: ["Error", "3", "5", "None"],
-    correct: "Error",
-    code: `a=(1,2,3)
-a[0]=5`,
-  },
-
-  {
-    id: "q32",
-    question: "What is the output?",
-    options: ["[1,2,3,4]", "[4]", "Error", "None"],
-    correct: "[4]",
-    code: `a=[1,2,3]
-b=a
-a=[4]
-print(b)`,
-  },
-
-  {
-    id: "q33",
-    question: "What is the output?",
-    options: ["True", "False", "Error", "None"],
-    correct: "True",
-    code: `print({1,2} & {2,3} == {2})`,
-  },
-
-  {
-    id: "q34",
-    question: "What is the output?",
-    options: ["[1,2,3]", "[3,2,1]", "Error", "None"],
-    correct: "[1,2,3]",
-    code: `a=[1,2,3]
-b=a[:]
-b.reverse()
-print(a)`,
-  },
-
-  {
-    id: "q35",
-    question: "What is the output?",
-    options: ["TypeError", "5", "ValueError", "10"],
-    correct: "TypeError",
-    code: `print(5 + "5")`,
-  },
-
-  {
-    id: "q36",
-    question: "What does 'is' operator check?",
-    options: ["Value equality", "Object identity", "Type equality", "None"],
-    correct: "Object identity",
-  },
-
-  {
-    id: "q37",
-    question:
-      "Which concept allows using same function name with different behavior?",
-    options: ["Inheritance", "Encapsulation", "Polymorphism", "Abstraction"],
-    correct: "Polymorphism",
-  },
-
-  {
-    id: "q38",
-    question: "What is the output?",
-    options: ["True", "False", "Error", "None"],
-    correct: "False",
-    code: `print([] is [])`,
-  },
-
-  {
-    id: "q39",
-    question: "What is the output?",
-    options: ["1", "2", "Error", "None"],
-    correct: "2",
-    code: `class A:
-    x=1
-a=A()
-a.x=2
-print(a.x)`,
-  },
-
-  {
-    id: "q40",
-    question: "What is the output?",
-    options: ["1", "2", "Error", "None"],
-    correct: "1",
-    code: `class A:
-    x=1
-a=A()
-print(a.x)`,
-  },
-
-  {
     id: "q41",
     question: "What is the output?",
-    options: ["ValueError", "1", "AttributeError", "None"],
-    correct: "AttributeError",
-    code: `class A:
-    x = 1
-
-a = A()
-del a.x
-print(A.x)`,
+    options: ["1 2 3 4", "0 1 2 3", "1 2 3", "Error"],
+    correct: "1 2 3 4",
+    code: `for i in range(1, 5):
+    print(i, end=" ")`,
   },
 
   {
     id: "q42",
     question: "What is the output?",
-    options: [
-      "[1] [1,2] [1,2,3] [1,2,3,4]",
-      "[1,2,3,4] [1,2,3,4] [1,2,3,4] [1,2,3,4]",
-      "Error",
-      "None",
-    ],
-    correct: "[1,2,3,4] [1,2,3,4] [1,2,3,4] [1,2,3,4]",
-    code: `def f(x, l=[]):
-    l.append(x)
-    return l
-
-print(f(1), f(2), f(3), f(4))`,
+    options: ["0 2 4", "2 4 6", "1 3 5", "0 1 2"],
+    correct: "0 2 4",
+    code: `for i in range(0, 6, 2):
+    print(i, end=" ")`,
   },
 
   {
     id: "q43",
     question: "What is the output?",
-    options: ["True", "False", "Error", "None"],
-    correct: "True",
-    code: `print(bool("False"))`,
+    options: ["5 4 3", "5 4 3 2 1", "4 3 2", "Error"],
+    correct: "5 4 3",
+    code: `for i in range(5, 2, -1):
+    print(i, end=" ")`,
   },
 
   {
     id: "q44",
-    question: "What is the output?",
-    options: ["0", "1", "Error", "None"],
-    correct: "0",
-    code: `print(False * 10)`,
+    question: "Find the error in the following code.",
+    options: ["SyntaxError", "TypeError", "NameError", "No Error"],
+    correct: "TypeError",
+    code: `for i in range("5"):
+    print(i)`,
   },
 
   {
     id: "q45",
     question: "What is the output?",
-    options: ["Error", "3", "2", "1"],
-    correct: "3",
-    code: `def f(a,b=2):
-    return a+b
-print(f(1))`,
+    options: ["0 1 2 Done", "0 1 2", "Done", "Error"],
+    correct: "0 1 2 Done",
+    code: `for i in range(3):
+    print(i, end=" ")
+else:
+    print("Done")`,
   },
 
   {
     id: "q46",
     question: "What is the output?",
-    options: ["TypeError", "True", "False", "1"],
-    correct: "TypeError",
-    code: `print(len(1))`,
+    options: ["0 1 Done", "0 1", "Done", "0 1 2 Done"],
+    correct: "0 1",
+    code: `for i in range(3):
+    if i == 2:
+        break
+    print(i, end=" ")
+else:
+    print("Done")`,
   },
 
   {
     id: "q47",
     question: "What is the output?",
-    options: ["Value Error", "1", "Type Error", "2"],
-    correct: "Value Error",
-    code: `def f(a, b):
-    return a+b
-
-print(f(1))`,
+    options: ["2 4", "1 2 3 4", "2 3", "Error"],
+    correct: "2 4",
+    code: `for i in range(1, 5):
+    if i % 2 != 0:
+        continue
+    print(i, end=" ")`,
   },
 
   {
     id: "q48",
     question: "What is the output?",
-    options: ["[1,2]", "[2,3]", "[1,2,3]", "Error"],
-    correct: "[2,3]",
-    code: `print([i for i in range(5) if i%2 if i>1])`,
+    options: ["10", "15", "20", "Error"],
+    correct: "15",
+    code: `total = 0
+
+for i in range(1, 6):
+    total += i
+
+print(total)`,
   },
 
   {
     id: "q49",
-    question: "What is the output?",
-    options: ["[0,1,2]", "[2,2,2]", "[0,0,0]", "Error"],
-    correct: "[2,2,2]",
-    code: `funcs = []
-for i in range(3):
-    funcs.append(lambda: i)
+    question: "Find the error in the following code.",
+    options: ["SyntaxError", "Infinite loop", "TypeError", "No Error"],
+    correct: "Infinite loop",
+    code: `i = 0
 
-print([f() for f in funcs])`,
+while i < 3:
+    if i == 2:
+        continue
+    print(i)
+    i += 1`,
   },
 
   {
     id: "q50",
     question: "What is the output?",
-    options: ["Error", "2", "3", "None"],
-    correct: "2",
-    code: `x=2
-def f():
-    global x
-    x=3
-f()
-print(2)`,
+    options: ["Not Found", "Found", "Found Not Found", "Error"],
+    correct: "Not Found",
+    code: `for i in range(1, 5):
+    if i == 10:
+        print("Found")
+        break
+else:
+    print("Not Found")`,
   },
 ];
-
 export default questions;
 
 // const questions = [
@@ -1312,3 +1455,487 @@ export default questions;
 // //     correct: "list",
 // //   },
 // // ];
+// const questions = [
+//   // ======================
+//   // 🟡 MEDIUM (q1–q30)
+//   // ======================
+
+//   {
+//     id: "q1",
+//     question: "What is the output?",
+//     options: ["0 1 2", "1 2 3", "0 1", "Error"],
+//     correct: "0 1",
+//     code: `for i in range(3):
+//     if i == 2:
+//         break
+//     print(i, end=" ")`,
+//   },
+
+//   {
+//     id: "q2",
+//     question: "What is the output?",
+//     options: ["[2,3,4]", "[1,2,3,4]", "[0,1,2,3,4]", "Error"],
+//     correct: "[2,3,4]",
+//     code: `print(list(filter(lambda x: x > 1, [-3,-2,-1,0,1,2,3,4])))`,
+//   },
+
+//   {
+//     id: "q3",
+//     question: "What is the output?",
+//     options: ["True", "False", "Error", "None"],
+//     correct: "True",
+//     code: `print(isinstance(5, int))`,
+//   },
+
+//   {
+//     id: "q4",
+//     question: "What is the output?",
+//     options: ["[1,2,3]", "[1,2]", "Error", "None"],
+//     correct: "[1,2]",
+//     code: `a=[1,2,3]
+// a.pop()
+// print(a)`,
+//   },
+//   {
+//     id: "q5",
+//     question: "What is the output?",
+//     options: ["[2,4,6]", "1,2,3", "[1,2,3]", "[1,4,9]"],
+//     correct: "[2,4,6]",
+//     code: `print(list(map(lambda x:x*2,[1,2,3])))`,
+//   },
+
+//   {
+//     id: "q6",
+//     question: "What is the output?",
+//     options: ["6", "12", "0", "None"],
+//     correct: "6",
+//     code: `print(sum({1,1,2,2,3,3}))`,
+//   },
+
+//   {
+//     id: "q7",
+//     question: "What is the output?",
+//     options: ["{'a':1,'b':2}", "['a','b']", "('a','b')", "[1,2]"],
+//     correct: "['a','b']",
+//     code: `print(list({'a':1,'b':2}))`,
+//   },
+
+//   {
+//     id: "q8",
+//     question: "What is the output?",
+//     options: ["True", "False", "Error", "None"],
+//     correct: "False",
+//     code: `print(10 > 5 > 10)`,
+//   },
+
+//   {
+//     id: "q9",
+//     question: "What is the output?",
+//     options: ["[1,2,3,4]", "[1,2,3]", "Error", "None"],
+//     correct: "[1,2,3,4]",
+//     code: `a=[1,2]
+// a+= [3,4]
+// print(a)`,
+//   },
+
+//   {
+//     id: "q10",
+//     question: "What is the output?",
+//     options: ["3", "2", "Error", "1"],
+//     correct: "2",
+//     code: `print(len((1,)))`,
+//   },
+
+//   {
+//     id: "q11",
+//     question: "What is the output?",
+//     options: ["Error", "True", "False", "None"],
+//     correct: "True",
+//     code: `print(type({}) == dict)`,
+//   },
+
+//   {
+//     id: "q12",
+//     question: "What is the output?",
+//     options: ["0", "1", "Error", "None"],
+//     correct: "1",
+//     code: `print(True + False)`,
+//   },
+
+//   {
+//     id: "q13",
+//     question: "What is the output?",
+//     options: ["2", "3", "IndexError", "1"],
+//     correct: "2",
+//     code: `x=[1,2,3]
+// print(x[-2])`,
+//   },
+
+//   {
+//     id: "q14",
+//     question: "What type of error occurs?",
+//     options: ["TypeError", "AttributeError", "ValueError", "No Error"],
+//     correct: "AttributeError",
+//     code: `a=10
+// a.append(5)`,
+//   },
+
+//   {
+//     id: "q15",
+//     question: "What is the output?",
+//     options: ["[1,2]", "[2,3]", "Error", "None"],
+//     correct: "[2,3]",
+//     code: `print([i for i in [1,2,1,3,1] if i!=1])`,
+//   },
+
+//   {
+//     id: "q16",
+//     question: "What type of error occurs?",
+//     options: ["TypeError", "AttributeError", "NameError", "No Error"],
+//     correct: "TypeError",
+//     code: `for i in 5:
+//     print(i)`,
+//   },
+
+//   {
+//     id: "q17",
+//     question: "What type of error occurs?",
+//     options: ["TypeError", "KeyError", "IndexError", "No Error"],
+//     correct: "KeyError",
+//     code: `d={}
+// print(d["x"])`,
+//   },
+
+//   {
+//     id: "q18",
+//     question: "What is the output?",
+//     options: ["Error", "1", "True", "False"],
+//     correct: "True",
+//     code: `print(bool(1))`,
+//   },
+
+//   {
+//     id: "q19",
+//     question: "What is the output?",
+//     options: ["[1,2,3]", "[3,2,1]", "Error", "None"],
+//     correct: "[3,2,1]",
+//     code: `print(sorted([3,2,1]))`,
+//   },
+
+//   {
+//     id: "q20",
+//     question: "What is the output?",
+//     options: ["Error", "None", "True", "False"],
+//     correct: "None",
+//     code: `def f():
+//     pass
+// print(f())`,
+//   },
+
+//   {
+//     id: "q21",
+//     question: "What is the output?",
+//     options: ["5", "10", "Error", "None"],
+//     correct: "10",
+//     code: `x=5
+// x*=2
+// print(x)`,
+//   },
+
+//   {
+//     id: "q22",
+//     question: "What is the output?",
+//     options: ["[[1],[2]]", "[[1,2],[1,2]]", "[[1,2],[2]]", "Error"],
+//     correct: "[[1,2],[2]]",
+//     code: `a=[[1],[2]]
+// b=a
+// b[0].append(2)
+// print(a)`,
+//   },
+
+//   {
+//     id: "q23",
+//     question: "What is the output?",
+//     options: ["Error", "1", "0", "None"],
+//     correct: "1",
+//     code: `print(len({1,1,1}))`,
+//   },
+
+//   {
+//     id: "q24",
+//     question: "What is the output?",
+//     options: ["2", "Error", "1", "3"],
+//     correct: "1",
+//     code: `print([1,2,3].index(2))`,
+//   },
+
+//   {
+//     id: "q25",
+//     question: "What is the output?",
+//     options: ["True", "False", "Error", "None"],
+//     correct: "False",
+//     code: `print(bool(0.0))`,
+//   },
+
+//   {
+//     id: "q26",
+//     question: "What is the output?",
+//     options: ["Error", "True", "False", "None"],
+//     correct: "True",
+//     code: `print(isinstance("abc", str))`,
+//   },
+
+//   {
+//     id: "q27",
+//     question: "What is the output?",
+//     options: ["abc", "a b c", "Error", "None"],
+//     correct: "a b c",
+//     code: `print(" ".join("abc"))`,
+//   },
+
+//   {
+//     id: "q28",
+//     question: "What is the output?",
+//     options: ["[1,2,3]", "[1,2]", "Error", "None"],
+//     correct: "[1,2]",
+//     code: `a=[1,2,3]
+// del a[-1]
+// print(a)`,
+//   },
+
+//   {
+//     id: "q29",
+//     question: "What is the output?",
+//     options: ["24", "1", "4", "ValueError"],
+//     correct: "24",
+//     code: `def f(n):
+//     try:
+//         if n == 1:
+//             raise ValueError
+//         return n * f(n-1)
+//     except:
+//         return 1
+
+// print(f(4))`,
+//   },
+
+//   {
+//     id: "q30",
+//     question: "What is the output?",
+//     options: ["0 1 E 0 1 0", "0 1 2 0 1", "Error", "None"],
+//     correct: "0 1 E 0 1 0",
+//     code: `def f(n):
+//     for i in range(n):
+//         try:
+//             if i == 2:
+//                 raise Exception
+//             print(i, end=" ")
+//         except:
+//             print("E", end=" ")
+//     if n > 0:
+//         f(n-1)
+
+// f(3)`,
+//   },
+
+//   {
+//     id: "q31",
+//     question: "What is the output?",
+//     options: ["Error", "3", "5", "None"],
+//     correct: "Error",
+//     code: `a=(1,2,3)
+// a[0]=5`,
+//   },
+
+//   {
+//     id: "q32",
+//     question: "What is the output?",
+//     options: ["[1,2,3,4]", "[4]", "Error", "None"],
+//     correct: "[4]",
+//     code: `a=[1,2,3]
+// b=a
+// a=[4]
+// print(b)`,
+//   },
+
+//   {
+//     id: "q33",
+//     question: "What is the output?",
+//     options: ["True", "False", "Error", "None"],
+//     correct: "True",
+//     code: `print({1,2} & {2,3} == {2})`,
+//   },
+
+//   {
+//     id: "q34",
+//     question: "What is the output?",
+//     options: ["[1,2,3]", "[3,2,1]", "Error", "None"],
+//     correct: "[1,2,3]",
+//     code: `a=[1,2,3]
+// b=a[:]
+// b.reverse()
+// print(a)`,
+//   },
+
+//   {
+//     id: "q35",
+//     question: "What is the output?",
+//     options: ["TypeError", "5", "ValueError", "10"],
+//     correct: "TypeError",
+//     code: `print(5 + "5")`,
+//   },
+
+//   {
+//     id: "q36",
+//     question: "What does 'is' operator check?",
+//     options: ["Value equality", "Object identity", "Type equality", "None"],
+//     correct: "Object identity",
+//   },
+
+//   {
+//     id: "q37",
+//     question:
+//       "Which concept allows using same function name with different behavior?",
+//     options: ["Inheritance", "Encapsulation", "Polymorphism", "Abstraction"],
+//     correct: "Polymorphism",
+//   },
+
+//   {
+//     id: "q38",
+//     question: "What is the output?",
+//     options: ["True", "False", "Error", "None"],
+//     correct: "False",
+//     code: `print([] is [])`,
+//   },
+
+//   {
+//     id: "q39",
+//     question: "What is the output?",
+//     options: ["1", "2", "Error", "None"],
+//     correct: "2",
+//     code: `class A:
+//     x=1
+// a=A()
+// a.x=2
+// print(a.x)`,
+//   },
+
+//   {
+//     id: "q40",
+//     question: "What is the output?",
+//     options: ["1", "2", "Error", "None"],
+//     correct: "1",
+//     code: `class A:
+//     x=1
+// a=A()
+// print(a.x)`,
+//   },
+
+//   {
+//     id: "q41",
+//     question: "What is the output?",
+//     options: ["ValueError", "1", "AttributeError", "None"],
+//     correct: "AttributeError",
+//     code: `class A:
+//     x = 1
+
+// a = A()
+// del a.x
+// print(A.x)`,
+//   },
+
+//   {
+//     id: "q42",
+//     question: "What is the output?",
+//     options: [
+//       "[1] [1,2] [1,2,3] [1,2,3,4]",
+//       "[1,2,3,4] [1,2,3,4] [1,2,3,4] [1,2,3,4]",
+//       "Error",
+//       "None",
+//     ],
+//     correct: "[1,2,3,4] [1,2,3,4] [1,2,3,4] [1,2,3,4]",
+//     code: `def f(x, l=[]):
+//     l.append(x)
+//     return l
+
+// print(f(1), f(2), f(3), f(4))`,
+//   },
+
+//   {
+//     id: "q43",
+//     question: "What is the output?",
+//     options: ["True", "False", "Error", "None"],
+//     correct: "True",
+//     code: `print(bool("False"))`,
+//   },
+
+//   {
+//     id: "q44",
+//     question: "What is the output?",
+//     options: ["0", "1", "Error", "None"],
+//     correct: "0",
+//     code: `print(False * 10)`,
+//   },
+
+//   {
+//     id: "q45",
+//     question: "What is the output?",
+//     options: ["Error", "3", "2", "1"],
+//     correct: "3",
+//     code: `def f(a,b=2):
+//     return a+b
+// print(f(1))`,
+//   },
+
+//   {
+//     id: "q46",
+//     question: "What is the output?",
+//     options: ["TypeError", "True", "False", "1"],
+//     correct: "TypeError",
+//     code: `print(len(1))`,
+//   },
+
+//   {
+//     id: "q47",
+//     question: "What is the output?",
+//     options: ["Value Error", "1", "Type Error", "2"],
+//     correct: "Value Error",
+//     code: `def f(a, b):
+//     return a+b
+
+// print(f(1))`,
+//   },
+
+//   {
+//     id: "q48",
+//     question: "What is the output?",
+//     options: ["[1,2]", "[2,3]", "[1,2,3]", "Error"],
+//     correct: "[2,3]",
+//     code: `print([i for i in range(5) if i%2 if i>1])`,
+//   },
+
+//   {
+//     id: "q49",
+//     question: "What is the output?",
+//     options: ["[0,1,2]", "[2,2,2]", "[0,0,0]", "Error"],
+//     correct: "[2,2,2]",
+//     code: `funcs = []
+// for i in range(3):
+//     funcs.append(lambda: i)
+
+// print([f() for f in funcs])`,
+//   },
+
+//   {
+//     id: "q50",
+//     question: "What is the output?",
+//     options: ["Error", "2", "3", "None"],
+//     correct: "2",
+//     code: `x=2
+// def f():
+//     global x
+//     x=3
+// f()
+// print(2)`,
+//   },
+// ];

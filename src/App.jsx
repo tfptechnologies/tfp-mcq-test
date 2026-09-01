@@ -17,7 +17,7 @@ export default function App() {
   const [formError, setFormError] = useState("");
   const [answers, setAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(1800);
+  const [timeLeft, setTimeLeft] = useState(2700);
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [isSubmitting, startSubmitting] = useTransition();
@@ -137,7 +137,7 @@ export default function App() {
     const wrong = questions.length - score;
     const percent = Math.round((score / questions.length) * 100);
 
-    const collectionRef = collection(db, "aditya_clg_py_quiz_submissions");
+    const collectionRef = collection(db, "python_4_30_to_5_50_submissions");
     const payload = {
       name: userInfo.name,
       rollNumber: userInfo.rollNumber,
@@ -148,7 +148,7 @@ export default function App() {
       percent,
       answers,
       timestamp: new Date(),
-      quiz: 3,
+      quiz: 1,
     };
 
     startSubmitting(async () => {
@@ -196,7 +196,7 @@ export default function App() {
   const handleReset = () => {
     setAnswers({});
     setSubmitted(false);
-    setTimeLeft(1800);
+    setTimeLeft(2700);
     setError("");
     setShowModal(false);
     setQuizStarted(false);
@@ -562,7 +562,7 @@ export default function App() {
                   Python Basic Quiz
                 </h1>
                 <p className="text-gray-500 text-xs sm:text-sm">
-                  {questions.length} Questions · 30 Minutes
+                  {questions.length} Questions · 45 Minutes
                 </p>
               </div>
             </div>
